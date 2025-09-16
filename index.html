@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE TEMS Event Registration | Live Payment</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#homepage" onclick="navigateTo('homepage')" class="logo">IEEE TEMS</a>
+        <nav class="nav">
+            <a href="#homepage" onclick="scrollToSection('homepage')">Home</a>
+            <a href="#speakers" onclick="scrollToSection('speakers')">Speakers</a>
+            <a href="#itinerary" onclick="scrollToSection('itinerary')">Itinerary</a>
+        </nav>
+    </header>
+    <main id="main-content">
+        <!-- Homepage Section -->
+        <section id="homepage" class="page">
+            <div class="hero">
+                <div>
+                    <h1>Pitch Perfect 2.0</h1>
+                    <p class="lead">The Premier Entrepreneurship Conference. Drive innovation, foster collaboration, and transform your ideas into reality with cutting-edge insights and networking opportunities.</p>
+                    <div id="countdown-timer" style="background: rgba(255,255,255,0.9); padding: 1.5rem; border-radius: 16px; margin: 2rem 0; backdrop-filter: blur(10px); border: 1px solid rgba(227, 232, 238, 0.5);">
+                        <h3 style="margin-bottom: 1rem; color: var(--dark-blue); font-size: 1.2rem;">⏰ Event Starts In:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center;">
+                            <div style="background: var(--gradient-primary); color: white; padding: 1rem; border-radius: 12px;">
+                                <div id="days" style="font-size: 2rem; font-weight: bold;">00</div>
+                                <div style="font-size: 0.9rem; opacity: 0.9;">Days</div>
+                            </div>
+                            <div style="background: var(--gradient-accent); color: white; padding: 1rem; border-radius: 12px;">
+                                <div id="hours" style="font-size: 2rem; font-weight: bold;">00</div>
+                                <div style="font-size: 0.9rem; opacity: 0.9;">Hours</div>
+                            </div>
+                            <div style="background: var(--gradient-primary); color: white; padding: 1rem; border-radius: 12px;">
+                                <div id="minutes" style="font-size: 2rem; font-weight: bold;">00</div>
+                                <div style="font-size: 0.9rem; opacity: 0.9;">Minutes</div>
+                            </div>
+                            <div style="background: var(--gradient-accent); color: white; padding: 1rem; border-radius: 12px;">
+                                <div id="seconds" style="font-size: 2rem; font-weight: bold;">00</div>
+                                <div style="font-size: 0.9rem; opacity: 0.9;">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn btn-accent" onclick="navigateTo('registration')">Register Now →</button>
+                        <button class="btn btn-outline" onclick="scrollToSection('speakers')">Meet Speakers</button>
+                    </div>
+                </div>
+                <div>
+                    <ul class="hero-details">
+                        <li><strong>Date:</strong> October 25-27, 2025</li>
+                        <li><strong>Venue:</strong> Virtual &amp; In-Person</li>
+                        <li><strong>Focus:</strong> Ideation, Pitching, &amp; Entrepreneurship</li>
+                        <li><strong>Prizes:</strong> ₹50K</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <h2 id="speakers" class="section-title">Featured Speakers</h2>
+                <div class="speakers-grid">
+                    <div class="card speaker-card">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="Dr. Evelyn Reed">
+                        <h3>Dr. Jasmine Fernandez</h3>
+                        <p>Pioneer in AI Ethics</p>
+                        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: var(--text-light);">15+ years in tech innovation, former Google AI researcher</p>
+                    </div>
+                    <div class="card speaker-card">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="Marco Chen">
+                        <h3>Alok Kumar</h3>
+                        <p>Lead Engineer, Quantum Systems</p>
+                        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: var(--text-light);">Serial entrepreneur, 3 successful exits, quantum computing expert</p>
+                    </div>
+                    <div class="card speaker-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200" alt="Anika Sharma">
+                        <h3>Anika Sharma</h3>
+                        <p>CEO, Innovate Solutions</p>
+                        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: var(--text-light);">Forbes 30 Under 30, built $100M+ company from scratch</p>
+                    </div>
+                </div>
+                <h2 class="section-title">Available Tracks</h2>
+                <div class="speakers-grid" style="margin-bottom: 4rem;">
+                    <div class="card track-card" data-track="fintech">
+                        <div class="icon">💳</div>
+                        <h3>FinTech</h3>
+                        <p>Digital payments, blockchain, cryptocurrency, and financial services innovation</p>
+                        
+                    </div>
+                    <div class="card track-card" data-track="healthtech">
+                        <div class="icon">🏥</div>
+                        <h3>HealthTech</h3>
+                        <p>Medical devices, telemedicine, health monitoring, and wellness solutions</p>
+                        
+                    </div>
+                    <div class="card track-card" data-track="edtech">
+                        <div class="icon">📚</div>
+                        <h3>EdTech</h3>
+                        <p>Online learning, educational tools, skill development, and knowledge platforms</p>
+                        
+                    </div>
+                    <div class="card track-card" data-track="sustainability">
+                        <div class="icon">🌱</div>
+                        <h3>Sustainability</h3>
+                        <p>Clean energy, environmental protection, waste management, and green technology</p>
+                        
+                    </div>
+                    <div class="card track-card" data-track="social">
+                        <div class="icon">🤝</div>
+                        <h3>Social Impact</h3>
+                        <p>Community solutions, accessibility, social justice, and humanitarian technology</p>
+                        
+                    </div>
+                    <div class="card track-card" data-track="open">
+                        <div class="icon">🚀</div>
+                        <h3>Open Innovation</h3>
+                        <p>Any innovative idea that doesn't fit the above categories - surprise us!</p>
+                        
+                    </div>
+                </div>
+                <h2 id="itinerary" class="section-title">Event Itinerary</h2>
+                <div class="itinerary-grid">
+                    <div class="day-column">
+                        <h3>Day 1: Ideation &amp; Persuasion</h3>
+                        <ul class="timeline">
+                            <li class="timeline-item">
+                                <span class="timeline-time">9:00 AM – 9:45 AM</span>
+                                <h4 class="timeline-title">🚀 Orientation &amp; Icebreaker</h4>
+                                <p class="timeline-description">Welcome, briefing, and team formation with networking activities.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">9:45 AM – 12:30 PM</span>
+                                <h4 class="timeline-title">🎯 Core Session: Design Thinking</h4>
+                                <p class="timeline-description"><strong>Task:</strong> Prepare &amp; submit a Problem Canvas (15% evaluation). Learn systematic problem identification.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">12:30 PM – 1:30 PM</span>
+                                <h4 class="timeline-title">☕ Lunch Break</h4>
+                                <p class="timeline-description">Network with fellow participants and mentors.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">2:00 PM – 3:00 PM</span>
+                                <h4 class="timeline-title">🧠 Session: Sales &amp; Psychology</h4>
+                                <p class="timeline-description">Master the fundamentals of persuasion, trust-building, and customer psychology.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">3:00 PM – 4:00 PM</span>
+                                <h4 class="timeline-title">⚡ Drill: Random Sales Pitch</h4>
+                                <p class="timeline-description">2-minute impromptu pitch challenge to sharpen your presentation skills.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">4:00 PM – 5:00 PM</span>
+                                <h4 class="timeline-title">🎤 Round 1 Presentations</h4>
+                                <p class="timeline-description">Present Problem Canvas to expert judges and receive valuable feedback.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="day-column">
+                        <h3>Day 2: Storytelling &amp; Finals</h3>
+                        <ul class="timeline">
+                            <li class="timeline-item">
+                                <span class="timeline-time">9:00 AM – 10:00 AM</span>
+                                <h4 class="timeline-title">📖 Session: Storytelling</h4>
+                                <p class="timeline-description">Learn to craft compelling narratives and structure winning pitches.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">10:00 AM – 12:30 PM</span>
+                                <h4 class="timeline-title">🎤 Preliminary Pitches</h4>
+                                <p class="timeline-description">Present refined pitches. Top 5 teams advance to finals with mentor feedback.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">12:30 PM – 1:30 PM</span>
+                                <h4 class="timeline-title">☕ Lunch Break</h4>
+                                <p class="timeline-description">Fuel up for the final presentations.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">1:30 PM – 2:30 PM</span>
+                                <h4 class="timeline-title">🔧 Finalists' Prep Time</h4>
+                                <p class="timeline-description">Refine final pitches with dedicated mentor support and feedback.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">2:30 PM – 4:30 PM</span>
+                                <h4 class="timeline-title">🏆 Final Pitches</h4>
+                                <p class="timeline-description">Finalists present to panel of judges. Audience votes for People's Choice Award.</p>
+                            </li>
+                            <li class="timeline-item">
+                                <span class="timeline-time">4:30 PM – 5:00 PM</span>
+                                <h4 class="timeline-title">🎉 Closing &amp; Awards</h4>
+                                <p class="timeline-description">Winner announcements, prize distribution, and closing networking session.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h2 class="section-title">What Makes This Special</h2>
+                <div class="speakers-grid" style="margin-top: 3rem;">
+                    <div class="card">
+                        <div class="icon">🎯</div>
+                        <h3>Expert Mentorship</h3>
+                        <p>Get personalized guidance from industry leaders and successful entrepreneurs throughout the event.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🏆</div>
+                        <h3>Substantial Prizes</h3>
+                        <p>₹50,000+ in total prizes including cash awards, startup resources, and mentorship opportunities.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🤝</div>
+                        <h3>Networking</h3>
+                        <p>Connect with like-minded entrepreneurs, potential co-founders, and industry professionals.</p>
+                    </div>
+                </div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-container" style="max-width: 900px; margin: 0 auto 4rem auto;">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>👥 Who can participate in Pitch Perfect 2.0?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Open to all students (undergraduate &amp; graduate) from any university or college. Professionals with less than 2 years of experience are also welcome. Valid student ID required for verification.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>🔢 What's the team size limit?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Teams can have 2-5 members. Solo participation is also allowed. We encourage diverse teams with complementary skills (technical, business, design).</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>⚖️ How will projects be judged?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>Judging Criteria:</strong><br>
+                            • Innovation &amp; Uniqueness (25%)<br>
+                            • Market Potential &amp; Impact (25%)<br>
+                            • Technical Feasibility (20%)<br>
+                            • Presentation &amp; Pitch Quality (20%)<br>
+                            • Business Model Clarity (10%)</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>🏆 What are the prizes?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>Prize Pool: ₹50,000+</strong><br>
+                            🥇 Winner: ₹25,000 + Incubation opportunity<br>
+                            🥈 Runner-up: ₹15,000 + Mentorship program<br>
+                            🥉 Third Place: ₹10,000<br>
+                            🎯 People's Choice: ₹5,000<br>
+                            Plus certificates for all participants!</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>💻 Do I need to build a working prototype?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No coding required! Focus on the problem, solution, and business model. Mockups, wireframes, or concept demonstrations are sufficient. It's about the idea and execution plan.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>🍕 Are meals provided?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! Registration includes breakfast, lunch, and evening snacks on both days. We cater to dietary restrictions - please mention them during registration.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>📱 Can I attend virtually?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We offer both in-person and virtual participation. Virtual attendees can participate in all sessions, mentoring, and pitching. However, in-person attendance is recommended for better networking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Registration & Payment Section -->
+        <section id="registration" class="page hidden">
+            <div class="container">
+                <div class="form-container">
+                    <h2 style="text-align:center; margin-bottom: 3rem; font-size: 2.5rem;">Student Registration</h2>
+                    <p style="text-align: center; color: var(--text-light); margin-bottom: 3rem; font-size: 1.1rem;">
+                        Join 500+ innovators and entrepreneurs for an unforgettable learning experience
+                    </p>
+                    <form id="registration-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="university">University / College *</label>
+                            <input type="text" id="university" required placeholder="Your institution name">
+                        </div>
+                        <div class="form-group">
+                            <label for="studentId">Student ID Number *</label>
+                            <input type="text" id="studentId" required placeholder="Your student ID">
+                        </div>
+                        <div id="payment-summary">
+                            <h3>💳 Order Summary</h3>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <p>Early Bird Registration Fee</p><p style="color: var(--success-green); font-weight: 600;">₹999.00</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                                <p>Processing Fee</p><p>₹25.00</p>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin: 1rem 0; font-size: 0.9rem; color: var(--text-light);">
+                                <p>💡 Includes: Materials, Meals, Certificate</p>
+                            </div>
+                            <div class="total" style="display: flex; justify-content: space-between;">
+                                <p>Total Amount</p><p>₹1024.00</p>
+                            </div>
+                        </div>
+                        <button type="submit" id="pay-button" class="btn btn-accent" style="width:100%; font-size: 1.1rem;">
+                            🔒 Secure Payment with Razorpay
+                        </button>
+                        <p class="disclaimer">
+                            🛡️ Secure payment powered by Razorpay. This is a live test environment - no real money will be charged. 
+                            Your data is protected with industry-standard encryption.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Confirmation Section -->
+        <section id="confirmation" class="page hidden">
+            <div class="container">
+                <div class="confirmation-box">
+                    <div class="icon">✓</div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--success-green);">Registration Successful!</h2>
+                    <p style="color:var(--text-light); max-width: 65ch; margin: 0 auto 2rem auto; font-size: 1.1rem; line-height: 1.6;">
+                        🎉 Welcome to Pitch Perfect 2.0! Your registration is confirmed and a detailed email with your ticket, 
+                        venue information, and event guidelines has been sent to your inbox. Get ready for an amazing journey of innovation!
+                    </p>
+                    <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 12px; margin: 2rem 0; border-left: 4px solid var(--success-green);">
+                        <p><strong>Next Steps:</strong></p>
+                        <ul style="text-align: left; margin: 1rem 0; color: var(--text-dark);">
+                            <li>Check your email for event details and calendar invite</li>
+                            <li>Join our WhatsApp group for updates (link in email)</li>
+                            <li>Prepare your initial ideas and questions</li>
+                        </ul>
+                    </div>
+                    <p id="paymentIdDisplay" style="font-family: var(--font-body); background: var(--bg-light); padding: 1rem; border-radius: 8px; font-size: 0.9rem; color: var(--text-light); margin: 2rem 0;"></p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                        <button class="btn" onclick="navigateTo('homepage')">← Back to Home</button>
+                        <button class="btn btn-outline" onclick="window.print()">📄 Print Confirmation</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Floating CTA -->
+    <div id="floating-cta" class="floating-cta">
+        <button class="btn btn-accent" onclick="navigateTo('registration')" style="border-radius: 50px; padding: 1rem 2rem; box-shadow: var(--shadow-heavy);">
+            Register Now 🚀
+        </button>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+                <div>
+                    <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.4rem;">📞 Contact for support</h3>
+                    <div style="line-height: 2;">
+                        <p>📧 <strong>Email:</strong> <a href="mailto:support@ieeetemsideathon.com" style="color: #1abc9c; text-decoration: none;">support@ieeetemsideathon.com</a></p>
+                        <p>📱 <strong>Phone:</strong> <a href="tel:+919876543210" style="color: #1abc9c; text-decoration: none;">+91 98765 43210</a></p>
+                        <p>⏰ <strong>Support Hours:</strong> 8 AM - 5 PM (Mon-Fri)</p>
+                        <p>🏢 <strong>IEEE TEMS Student Chapter</strong><br>Technology &amp; Engineering Management Society</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.4rem;">🌐 Follow Us</h3>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="https://instagram.com/ieeetemsideathon" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.2rem; background: linear-gradient(135deg, #E4405F, #C13584); color: white; text-decoration: none; border-radius: 12px; transition: all 0.3s ease; font-weight: 600;">
+                            <span style="font-size: 1.2rem;">🅾</span> Instagram
+                        </a>
+                        <a href="https://linkedin.com/company/ieee-tems-ideathon" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.2rem; background: linear-gradient(135deg, #0077B5, #00A0DC); color: white; text-decoration: none; border-radius: 12px; transition: all 0.3s ease; font-weight: 600;">
+                            <span style="font-size: 1.2rem;">[in]</span> LinkedIn
+                        </a>
+                        <a href="https://discord.gg/ieeetemsideathon" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.2rem; background: linear-gradient(135deg, #5865F2, #7289DA); color: white; text-decoration: none; border-radius: 12px; transition: all 0.3s ease; font-weight: 600;">
+                            <span style="font-size: 1.2rem;">👾</span> Discord
+                        </a>
+                    </div>
+                    <p style="margin-top: 1rem; opacity: 0.9; line-height: 1.6;">
+                        Stay updated with event announcements, connect with fellow participants, and get exclusive behind-the-scenes content!
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; text-align: center;">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">&copy; 2025 IEEE Technology &amp; Engineering Management Society. All rights reserved.</p>
+                <p style="opacity: 0.8;">Empowering the next generation of technology leaders and entrepreneurs</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Link to external JS -->
+    <script src="scripts.js"></script>
+</body>
+</html>

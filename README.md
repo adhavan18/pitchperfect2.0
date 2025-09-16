@@ -1,1 +1,1 @@
-pitch perfect 2.0
+Pitch Perfect 2.0
